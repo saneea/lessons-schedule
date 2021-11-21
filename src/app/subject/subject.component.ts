@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Subject} from "../subject";
 
 @Component({
@@ -10,9 +10,15 @@ export class SubjectComponent implements OnInit {
 
   @Input() subject?: Subject;
 
+  @Output() onDelete = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onDeleteClick(): void {
+    this.onDelete.emit();
   }
 
 }

@@ -1,5 +1,5 @@
 <div *ngFor="let subject of getSubjects()">
-  <app-subject [subject]="subject"></app-subject>
+  <app-subject [subject]="subject" (onDelete)="deleteSubject(subject)"></app-subject>
 </div>
 
 <div class="add-subject-wrapper">
