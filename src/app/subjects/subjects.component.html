@@ -1,3 +1,7 @@
 <div *ngFor="let subject of subjects">
   <app-subject [subject]="subject"></app-subject>
 </div>
+
+<div class="add-subject-wrapper">
+  <span class="add-subject" (click)="onAddSubject()">Add subject</span>
+</div>

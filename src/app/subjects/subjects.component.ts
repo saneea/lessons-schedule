@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SUBJECTS} from "../mock-subjects";
 import {Subject} from "../subject";
 
@@ -11,9 +11,16 @@ export class SubjectsComponent implements OnInit {
 
   subjects: Subject[] = SUBJECTS;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
+  }
+
+  onAddSubject(): void {
+    this.subjects.push({
+      name: 'New subject'
+    })
   }
 
 }
