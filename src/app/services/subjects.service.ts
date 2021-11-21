@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Subject} from "../subject";
 import {SUBJECTS} from "../mock-subjects";
 
@@ -7,7 +7,8 @@ import {SUBJECTS} from "../mock-subjects";
 })
 export class SubjectsService {
 
-  constructor() { }
+  constructor() {
+  }
 
   getSubjects(): Subject[] {
     return SUBJECTS;
@@ -17,4 +18,10 @@ export class SubjectsService {
     SUBJECTS.push(subject);
   }
 
+  deleteSubject(subject: Subject) {
+    const indexToRemove: number = SUBJECTS.indexOf(subject, 0);
+    if (indexToRemove > -1) {
+      SUBJECTS.splice(indexToRemove, 1);
+    }
+  }
 }
