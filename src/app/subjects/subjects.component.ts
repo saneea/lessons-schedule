@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {SUBJECTS} from "../mock-subjects";
 import {Subject} from "../subject";
+import {SubjectsService} from "../services/subjects.service";
 
 @Component({
   selector: 'app-subjects',
@@ -9,16 +9,18 @@ import {Subject} from "../subject";
 })
 export class SubjectsComponent implements OnInit {
 
-  subjects: Subject[] = SUBJECTS;
-
-  constructor() {
+  constructor(private subjectsService: SubjectsService) {
   }
 
   ngOnInit(): void {
   }
 
+  getSubjects(): Subject[] {
+    return this.subjectsService.getSubjects()
+  }
+
   onAddSubject(): void {
-    this.subjects.push({
+    this.subjectsService.addSubject({
       name: 'New subject'
     })
   }
