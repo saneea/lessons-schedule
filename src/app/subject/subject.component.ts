@@ -12,6 +12,8 @@ export class SubjectComponent implements OnInit {
 
   @Output() onDelete = new EventEmitter();
 
+  @Output() onEdited = new EventEmitter();
+
   inEdit: boolean = false;
 
   editorSubject: Subject = {
@@ -40,6 +42,7 @@ export class SubjectComponent implements OnInit {
     if (this.subject) {
       this.subject.name = this.editorSubject.name;
     }
+    this.onEdited.emit();
   }
 
   onDiscardChangesClick(): void {
