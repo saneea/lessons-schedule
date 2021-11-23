@@ -31,14 +31,14 @@ export class SubjectComponent implements OnInit {
   onEditClick(): void {
     this.inEdit = true;
     if (this.subject) {
-      this.editorSubject = {...this.subject};
+      this.editorSubject.name = this.subject.name;
     }
   }
 
   onApplyChangesClick(): void {
     this.inEdit = false;
-    if (this.editorSubject) {
-      this.subject = {...this.editorSubject};
+    if (this.subject) {
+      this.subject.name = this.editorSubject.name;
     }
   }
 
