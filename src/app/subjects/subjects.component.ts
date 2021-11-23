@@ -29,4 +29,7 @@ export class SubjectsComponent implements OnInit {
     this.subjectsService.deleteSubject(subject);
   }
 
+  onSubjectEdited() {
+    this.subjectsService.onSubjectEdited();
+  }
 }
