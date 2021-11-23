@@ -1,4 +1,10 @@
 <div class="subject-wrapper">
-  <span class="subject-name">{{subject?.name}}</span>
-  <span class="delete-subject-button" (click)="onDeleteClick()">[x]</span>
+  <span *ngIf="!inEdit" class="subject-name">{{subject?.name}}</span>
+  <input *ngIf="inEdit" [(ngModel)]="editorSubject.name" class="subject-editor-name">
+
+  <span *ngIf="!inEdit" class="edit-subject-button" (click)="onEditClick()">[edit]</span>
+  <span *ngIf="inEdit" class="apply-changes-subject-button" (click)="onApplyChangesClick()">[apply]</span>
+  <span *ngIf="inEdit" class="discard-changes-subject-button" (click)="onDiscardChangesClick()">[discard]</span>
+
+  <span *ngIf="!inEdit" class="delete-subject-button" (click)="onDeleteClick()">[x]</span>
 </div>

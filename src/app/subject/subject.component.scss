@@ -10,7 +10,29 @@
 .subject-name {
 }
 
+.subject-editor-name {
+  background: aquamarine;
+}
+
 .delete-subject-button {
+  margin-left: 10px;
+  background: red;
+  cursor: pointer;
+}
+
+.edit-subject-button {
+  margin-left: 10px;
+  background: yellow;
+  cursor: pointer;
+}
+
+.apply-changes-subject-button {
+  margin-left: 10px;
+  background: green;
+  cursor: pointer;
+}
+
+.discard-changes-subject-button {
   margin-left: 10px;
   background: red;
   cursor: pointer;

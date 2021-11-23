@@ -12,13 +12,38 @@ export class SubjectComponent implements OnInit {
 
   @Output() onDelete = new EventEmitter();
 
-  constructor() { }
+  inEdit: boolean = false;
+
+  editorSubject: Subject = {
+    name: ''
+  };
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
   onDeleteClick(): void {
     this.onDelete.emit();
+  }
+
+  onEditClick(): void {
+    this.inEdit = true;
+    if (this.subject) {
+      this.editorSubject = {...this.subject};
+    }
+  }
+
+  onApplyChangesClick(): void {
+    this.inEdit = false;
+    if (this.editorSubject) {
+      this.subject = {...this.editorSubject};
+    }
+  }
+
+  onDiscardChangesClick(): void {
+    this.inEdit = false;
   }
 
 }
