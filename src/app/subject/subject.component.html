@@ -1,10 +1,45 @@
 <div class="subject-wrapper">
-  <span *ngIf="!inEdit" class="subject-name">{{subject?.name}}</span>
-  <input *ngIf="inEdit" [(ngModel)]="editorSubject.name" class="subject-editor-name">
 
-  <span *ngIf="!inEdit" class="edit-subject-button" (click)="onEditClick()">[edit]</span>
-  <span *ngIf="inEdit" class="apply-changes-subject-button" (click)="onApplyChangesClick()">[apply]</span>
-  <span *ngIf="inEdit" class="discard-changes-subject-button" (click)="onDiscardChangesClick()">[discard]</span>
+  <div *ngIf="!inEdit">
+    <div class="subject-name">Subject name: {{subject?.name}}</div>
+    <div class="subject-name">Time offset: {{subject?.timeOffset}} min</div>
+    <div class="subject-name">Duration: {{subject?.duration}} min</div>
+  </div>
 
-  <span *ngIf="!inEdit" class="delete-subject-button" (click)="onDeleteClick()">[x]</span>
+  <div *ngIf="inEdit">
+    <div>
+      <label for="fieldSubject">Subject name</label>
+      <input id="fieldSubject"
+             [(ngModel)]="editorSubject.name"
+             class="subject-editor-name"
+      >
+    </div>
+
+    <div>
+      <label for="fieldTimeOffset">Time offset</label>
+      <input id="fieldTimeOffset"
+             type="number"
+             min="0" max="60"
+             [(ngModel)]="editorSubject.timeOffset"
+             class="subject-editor-name"
+      >
+    </div>
+
+    <div>
+      <label for="fieldDuration">Duration</label>
+      <input id="fieldDuration"
+             type="number"
+             min="1" max="45"
+             [(ngModel)]="editorSubject.duration"
+             class="subject-editor-name"
+      >
+    </div>
+  </div>
+
+  <div>
+    <span *ngIf="!inEdit" class="edit-subject-button" (click)="onEditClick()">[edit]</span>
+    <span *ngIf="inEdit" class="apply-changes-subject-button" (click)="onApplyChangesClick()">[apply]</span>
+    <span *ngIf="inEdit" class="discard-changes-subject-button" (click)="onDiscardChangesClick()">[discard]</span>
+    <span *ngIf="!inEdit" class="delete-subject-button" (click)="onDeleteClick()">[x]</span>
+  </div>
 </div>
