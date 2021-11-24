@@ -21,7 +21,9 @@ export class SubjectsComponent implements OnInit {
 
   onAddSubject(): void {
     this.subjectsService.addSubject({
-      name: 'New subject'
+      name: 'New subject',
+      timeOffset: 10,
+      duration: 15
     })
   }
 

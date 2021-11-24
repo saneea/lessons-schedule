@@ -17,7 +17,9 @@ export class SubjectComponent implements OnInit {
   inEdit: boolean = false;
 
   editorSubject: Subject = {
-    name: ''
+    name: '',
+    timeOffset: 0,
+    duration: 0
   };
 
   constructor() {
@@ -34,6 +36,8 @@ export class SubjectComponent implements OnInit {
     this.inEdit = true;
     if (this.subject) {
       this.editorSubject.name = this.subject.name;
+      this.editorSubject.timeOffset = this.subject.timeOffset;
+      this.editorSubject.duration = this.subject.duration;
     }
   }
 
@@ -41,6 +45,8 @@ export class SubjectComponent implements OnInit {
     this.inEdit = false;
     if (this.subject) {
       this.subject.name = this.editorSubject.name;
+      this.subject.timeOffset = this.editorSubject.timeOffset;
+      this.subject.duration = this.editorSubject.duration;
     }
     this.onEdited.emit();
   }
