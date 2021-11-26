@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { SubjectComponent } from './subject/subject.component';
 import { SubjectsComponent } from './subjects/subjects.component';
 import { FormsModule } from "@angular/forms";
+import { ClockControllerComponent } from './clock-controller/clock-controller.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SubjectComponent,
-    SubjectsComponent
+    SubjectsComponent,
+    ClockControllerComponent
   ],
   imports: [
     BrowserModule,
