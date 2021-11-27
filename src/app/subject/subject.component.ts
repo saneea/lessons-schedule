@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Subject} from "../subject";
+import {Subject} from "../common/subject";
 
 @Component({
   selector: 'app-subject',

@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Subject} from '../subject';
+import {Subject} from '../common/subject';
 
 const CONFIG_KEY: string = 'config';
 
