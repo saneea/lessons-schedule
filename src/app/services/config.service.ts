@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
-import {Subject} from "../subject";
+import {Subject} from '../subject';
 
-const SUBJECTS_KEY: string = "subjects";
+const CONFIG_KEY: string = 'config';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SubjectsService {
+export class ConfigService {
 
   private subjects: Subject[] = this.readConfig();
 
@@ -35,11 +35,11 @@ export class SubjectsService {
   }
 
   saveConfig() {
-    localStorage.setItem(SUBJECTS_KEY, JSON.stringify(this.subjects));
+    localStorage.setItem(CONFIG_KEY, JSON.stringify(this.subjects));
   }
 
   readConfig(): Subject[] {
-    let subjectsJson = localStorage.getItem(SUBJECTS_KEY);
+    let subjectsJson = localStorage.getItem(CONFIG_KEY);
     return subjectsJson ? JSON.parse(subjectsJson) : [];
   }
 
