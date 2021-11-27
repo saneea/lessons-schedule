@@ -1,4 +1,4 @@
-<div *ngFor="let subject of getSubjects()">
+<div *ngFor="let subject of getConfig().subjects">
   <app-subject
     [subject]="subject"
     (onDelete)="deleteSubject(subject)"

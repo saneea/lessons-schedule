@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Subject} from "../common/subject";
 import {ConfigService} from "../services/config.service";
+import {Config} from "../common/config";
 
 @Component({
   selector: 'app-subjects',
@@ -15,8 +16,8 @@ export class SubjectsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getSubjects(): Subject[] {
-    return this.configService.getSubjects()
+  getConfig(): Config {
+    return this.configService.getConfig()
   }
 
   onAddSubject(): void {
