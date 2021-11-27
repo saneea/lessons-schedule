@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Subject} from "../subject";
-import {SubjectsService} from "../services/subjects.service";
+import {ConfigService} from "../services/config.service";
 
 @Component({
   selector: 'app-subjects',
@@ -9,18 +9,18 @@ import {SubjectsService} from "../services/subjects.service";
 })
 export class SubjectsComponent implements OnInit {
 
-  constructor(private subjectsService: SubjectsService) {
+  constructor(private configService: ConfigService) {
   }
 
   ngOnInit(): void {
   }
 
   getSubjects(): Subject[] {
-    return this.subjectsService.getSubjects()
+    return this.configService.getSubjects()
   }
 
   onAddSubject(): void {
-    this.subjectsService.addSubject({
+    this.configService.addSubject({
       name: 'New subject',
       timeOffset: 10,
       duration: 15
@@ -28,10 +28,10 @@ export class SubjectsComponent implements OnInit {
   }
 
   deleteSubject(subject: Subject): void {
-    this.subjectsService.deleteSubject(subject);
+    this.configService.deleteSubject(subject);
   }
 
   onSubjectEdited() {
-    this.subjectsService.onSubjectEdited();
+    this.configService.onSubjectEdited();
   }
 }
