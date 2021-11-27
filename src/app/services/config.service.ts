@@ -44,6 +44,10 @@ export class ConfigService {
     return subjectsJson
       ? JSON.parse(subjectsJson)
       : {
+        startTime: {
+          hours: 12,
+          minutes: 0
+        },
         subjects: []
       };
   }
