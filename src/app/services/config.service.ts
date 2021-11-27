@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Subject} from '../common/subject';
+import {Config} from "../common/config";
 
 const CONFIG_KEY: string = 'config';
 
@@ -8,24 +9,24 @@ const CONFIG_KEY: string = 'config';
 })
 export class ConfigService {
 
-  private subjects: Subject[] = this.readConfig();
+  private config: Config = this.readConfig();
 
   constructor() {
   }
 
-  getSubjects(): Subject[] {
-    return this.subjects;
+  getConfig(): Config {
+    return this.config;
   }
 
   addSubject(subject: Subject) {
-    this.subjects.push(subject);
+    this.config.subjects.push(subject);
     this.saveConfig();
   }
 
   deleteSubject(subject: Subject) {
-    const indexToRemove: number = this.subjects.indexOf(subject, 0);
+    const indexToRemove: number = this.config.subjects.indexOf(subject, 0);
     if (indexToRemove > -1) {
-      this.subjects.splice(indexToRemove, 1);
+      this.config.subjects.splice(indexToRemove, 1);
     }
     this.saveConfig();
   }
@@ -35,12 +36,16 @@ export class ConfigService {
   }
 
   saveConfig() {
-    localStorage.setItem(CONFIG_KEY, JSON.stringify(this.subjects));
+    localStorage.setItem(CONFIG_KEY, JSON.stringify(this.config));
   }
 
-  readConfig(): Subject[] {
+  readConfig(): Config {
     let subjectsJson = localStorage.getItem(CONFIG_KEY);
-    return subjectsJson ? JSON.parse(subjectsJson) : [];
+    return subjectsJson
+      ? JSON.parse(subjectsJson)
+      : {
+        subjects: []
+      };
   }
 
 }
