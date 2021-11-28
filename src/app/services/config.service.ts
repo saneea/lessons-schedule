@@ -31,7 +31,7 @@ export class ConfigService {
     this.saveConfig();
   }
 
-  onSubjectEdited() {
+  onConfigEdited() {
     this.saveConfig();
   }
 
