@@ -32,7 +32,7 @@ export class SubjectsComponent implements OnInit {
     this.configService.deleteSubject(subject);
   }
 
-  onSubjectEdited() {
-    this.configService.onSubjectEdited();
+  onConfigEdited() {
+    this.configService.onConfigEdited();
   }
 }

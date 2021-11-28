@@ -1,10 +1,13 @@
-<app-lessons-start [startTime]="getConfig().startTime"></app-lessons-start>
+<app-lessons-start
+  [startTime]="getConfig().startTime"
+  (onEdited)="onConfigEdited()">
+</app-lessons-start>
 
 <div *ngFor="let subject of getConfig().subjects">
   <app-subject
     [subject]="subject"
     (onDelete)="deleteSubject(subject)"
-    (onEdited)="onSubjectEdited()">
+    (onEdited)="onConfigEdited()">
   </app-subject>
 </div>
 
