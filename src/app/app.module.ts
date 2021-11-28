@@ -7,13 +7,15 @@ import { SubjectComponent } from './subject/subject.component';
 import { SubjectsComponent } from './subjects/subjects.component';
 import { FormsModule } from "@angular/forms";
 import { ClockControllerComponent } from './clock-controller/clock-controller.component';
+import { LessonsStartComponent } from './lessons-start/lessons-start.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SubjectComponent,
     SubjectsComponent,
-    ClockControllerComponent
+    ClockControllerComponent,
+    LessonsStartComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-<div>Lessons start at: {{getConfig().startTime.hours}}:{{getConfig().startTime.minutes}}</div>
+<app-lessons-start [startTime]="getConfig().startTime"></app-lessons-start>
 
 <div *ngFor="let subject of getConfig().subjects">
   <app-subject
