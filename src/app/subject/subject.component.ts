@@ -1,5 +1,12 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Subject} from "../common/subject";
+import {LocalTime} from "@js-joda/core";
+
+export interface LessonItem {
+  start: LocalTime;
+  end: LocalTime;
+  subject: Subject;
+}
 
 @Component({
   selector: 'app-subject',
@@ -8,7 +15,9 @@ import {Subject} from "../common/subject";
 })
 export class SubjectComponent implements OnInit {
 
-  @Input() subject?: Subject;
+  @Input() lessonItem?: LessonItem;
+
+  @Input() inProgress: boolean = false;
 
   @Output() onDelete = new EventEmitter();
 
@@ -33,20 +42,24 @@ export class SubjectComponent implements OnInit {
   }
 
   onEditClick(): void {
+    console.log('onEditClick()')
     this.inEdit = true;
-    if (this.subject) {
-      this.editorSubject.name = this.subject.name;
-      this.editorSubject.timeOffset = this.subject.timeOffset;
-      this.editorSubject.duration = this.subject.duration;
+    console.log('onEditClick(2)')
+    if (this.lessonItem) {
+      console.log('onEditClick(3)')
+      this.editorSubject.name = this.lessonItem.subject.name;
+
+      this.editorSubject.timeOffset = this.lessonItem.subject.timeOffset;
+      this.editorSubject.duration = this.lessonItem.subject.duration;
     }
   }
 
   onApplyChangesClick(): void {
     this.inEdit = false;
-    if (this.subject) {
-      this.subject.name = this.editorSubject.name;
-      this.subject.timeOffset = this.editorSubject.timeOffset;
-      this.subject.duration = this.editorSubject.duration;
+    if (this.lessonItem) {
+      this.lessonItem.subject.name = this.editorSubject.name;
+      this.lessonItem.subject.timeOffset = this.editorSubject.timeOffset;
+      this.lessonItem.subject.duration = this.editorSubject.duration;
     }
     this.onEdited.emit();
   }

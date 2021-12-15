@@ -1,9 +1,11 @@
 <div class="subject-wrapper">
 
   <div *ngIf="!inEdit">
-    <div class="subject-name">Subject name: {{subject?.name}}</div>
-    <div class="subject-name">Time offset: {{subject?.timeOffset}} min</div>
-    <div class="subject-name">Duration: {{subject?.duration}} min</div>
+    <div class="subject-name">Subject name: {{lessonItem?.subject?.name}}</div>
+    <div class="subject-name">Time offset: {{lessonItem?.subject?.timeOffset}} min</div>
+    <div class="subject-name">Duration: {{lessonItem?.subject?.duration}} min</div>
+    <div class="subject-name">Starts: {{lessonItem?.start}}</div>
+    <div class="subject-name">Ends: {{lessonItem?.end}}</div>
   </div>
 
   <div *ngIf="inEdit">

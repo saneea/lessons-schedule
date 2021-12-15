@@ -3,10 +3,10 @@
   (onEdited)="onConfigEdited()">
 </app-lessons-start>
 
-<div *ngFor="let subject of getConfig().subjects">
+<div *ngFor="let lesson of getLessons()">
   <app-subject
-    [subject]="subject"
-    (onDelete)="deleteSubject(subject)"
+    [lessonItem]="lesson"
+    (onDelete)="deleteSubject(lesson.subject)"
     (onEdited)="onConfigEdited()">
   </app-subject>
 </div>
