@@ -2,10 +2,12 @@
   <div>
     <input type="number"
            min="0" max="23"
+           class="subject-editor-field"
            [(ngModel)]="config.startTime.hours">
     :
     <input type="number"
            min="0" max="59"
+           class="subject-editor-field"
            [(ngModel)]="config.startTime.minutes">
   </div>
 
@@ -21,7 +23,7 @@
       <td>
         <input
           [(ngModel)]="subject.name"
-          class="subject-editor-name"
+          class="subject-editor-field"
         >
       </td>
 
@@ -30,7 +32,7 @@
           type="number"
           min="0" max="60"
           [(ngModel)]="subject.timeOffset"
-          class="subject-editor-name"
+          class="subject-editor-field"
         >
       </td>
 
@@ -39,18 +41,18 @@
           type="number"
           min="1" max="45"
           [(ngModel)]="subject.duration"
-          class="subject-editor-name"
+          class="subject-editor-field"
         >
       </td>
 
       <td>
-        <span class="delete-subject-button" (click)="onDeleteClick(subject)">[x]</span>
+        <button class="delete-subject-button" (click)="onDeleteClick(subject)">Remove</button>
       </td>
     </tr>
   </table>
 
 
   <div class="add-subject-wrapper">
-    <span class="add-subject" (click)="onAddSubject()">Add subject</span>
+    <button class="add-subject" (click)="onAddSubject()">Add subject</button>
   </div>
 </ng-container>

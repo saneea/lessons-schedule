@@ -1,20 +1,27 @@
-.subject-editor-name {
-  background: aquamarine;
+.subject-editor-field {
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px black;
+
+  font-size: 18px;
+  background: yellow;
 }
 
 .delete-subject-button {
-  margin-left: 10px;
-  background: red;
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px black;
   cursor: pointer;
-}
+  margin: 0 5px;
 
-.add-subject-wrapper {
-  margin-top: 40px;
+  background: red;
 }
 
 .add-subject {
+  margin-top: 20px;
   padding: 10px;
   background: greenyellow;
   border-radius: 10px;
   box-shadow: 0 0 5px black;
+  cursor: pointer;
 }
