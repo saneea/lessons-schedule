@@ -1,16 +1,2 @@
 <span class="label">Lessons start at:</span>
-<span *ngIf="!inEdit" class="time">{{startTime?.hours}}:{{startTime?.minutes}}</span>
-
-<ng-container *ngIf="inEdit">
-  <input type="number"
-         min="0" max="23"
-         [(ngModel)]="editorStartTime.hours">
-  :
-  <input type="number"
-         min="0" max="59"
-         [(ngModel)]="editorStartTime.minutes">
-</ng-container>
-
-<span *ngIf="!inEdit" class="edit-subject-button" (click)="onEditClick()">[edit]</span>
-<span *ngIf="inEdit" class="apply-changes-subject-button" (click)="onApplyChangesClick()">[apply]</span>
-<span *ngIf="inEdit" class="discard-changes-subject-button" (click)="onDiscardChangesClick()">[discard]</span>
+<span class="time">{{startTime?.hours}}:{{startTime?.minutes}}</span>

@@ -1,16 +1,11 @@
-<app-lessons-start
-  [startTime]="getConfig().startTime"
-  (onEdited)="onConfigEdited()">
-</app-lessons-start>
+<ng-container *ngIf="config">
+  <app-lessons-start
+    [startTime]="config.startTime">
+  </app-lessons-start>
 
-<div *ngFor="let subject of getConfig().subjects">
-  <app-subject
-    [subject]="subject"
-    (onDelete)="deleteSubject(subject)"
-    (onEdited)="onConfigEdited()">
-  </app-subject>
-</div>
-
-<div class="add-subject-wrapper">
-  <span class="add-subject" (click)="onAddSubject()">Add subject</span>
-</div>
+  <div *ngFor="let lesson of (config | lessons)">
+    <app-subject
+      [lessonItem]="lesson">
+    </app-subject>
+  </div>
+</ng-container>
