@@ -1,9 +1,9 @@
-<ng-container *ngIf="config">
+<ng-container *ngIf="_config">
   <app-lessons-start
-    [startTime]="config.startTime">
+    [startTime]="_config.startTime">
   </app-lessons-start>
 
-  <div *ngFor="let lesson of (config | lessons)">
+  <div *ngFor="let lesson of lessons">
     <app-subject
       [lessonItem]="lesson">
     </app-subject>

@@ -1,14 +1,19 @@
-<div class="lessons-wrapper">
-  <ng-container *ngIf="!inEdit">
-    <app-clock-controller (onTimeChanged)="onTimeChanged($event)"></app-clock-controller>
-    <app-subjects [config]="config" [time]="currentTime"></app-subjects>
-  </ng-container>
+<ng-container *ngIf="config">
+  <div class="lessons-wrapper">
+    <ng-container *ngIf="!inEdit">
+      <app-clock-controller (onTimeChanged)="onTimeChanged($event)"></app-clock-controller>
+      <app-subjects [config]="config" [time]="currentTime"></app-subjects>
+    </ng-container>
 
-  <ng-container *ngIf="inEdit">
-    <app-subjects-editor [config]="editableConfig"></app-subjects-editor>
-  </ng-container>
-</div>
+    <ng-container *ngIf="inEdit">
+      <app-subjects-editor [config]="editableConfig"></app-subjects-editor>
+    </ng-container>
+  </div>
 
-<button *ngIf="!inEdit" class="editor-button __edit-subject-button" (click)="onEditClick()">Edit</button>
-<button *ngIf="inEdit" class="editor-button __apply-changes-subject-button" (click)="onApplyChangesClick()">Apply</button>
-<button *ngIf="inEdit" class="editor-button __discard-changes-subject-button" (click)="onDiscardChangesClick()">Discard</button>
+  <button *ngIf="!inEdit" class="editor-button __edit-subject-button" (click)="onEditClick()">Edit</button>
+  <button *ngIf="inEdit" class="editor-button __apply-changes-subject-button" (click)="onApplyChangesClick()">Apply
+  </button>
+  <button *ngIf="inEdit" class="editor-button __discard-changes-subject-button" (click)="onDiscardChangesClick()">
+    Discard
+  </button>
+</ng-container>
