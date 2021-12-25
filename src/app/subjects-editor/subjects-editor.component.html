@@ -1,0 +1,56 @@
+<ng-container *ngIf="config">
+  <div>
+    <input type="number"
+           min="0" max="23"
+           [(ngModel)]="config.startTime.hours">
+    :
+    <input type="number"
+           min="0" max="59"
+           [(ngModel)]="config.startTime.minutes">
+  </div>
+
+  <table>
+    <tr>
+      <th>name</th>
+      <th>timeOffset</th>
+      <th>duration</th>
+      <th></th>
+    </tr>
+
+    <tr *ngFor="let subject of config.subjects">
+      <td>
+        <input
+          [(ngModel)]="subject.name"
+          class="subject-editor-name"
+        >
+      </td>
+
+      <td>
+        <input
+          type="number"
+          min="0" max="60"
+          [(ngModel)]="subject.timeOffset"
+          class="subject-editor-name"
+        >
+      </td>
+
+      <td>
+        <input
+          type="number"
+          min="1" max="45"
+          [(ngModel)]="subject.duration"
+          class="subject-editor-name"
+        >
+      </td>
+
+      <td>
+        <span class="delete-subject-button" (click)="onDeleteClick(subject)">[x]</span>
+      </td>
+    </tr>
+  </table>
+
+
+  <div class="add-subject-wrapper">
+    <span class="add-subject" (click)="onAddSubject()">Add subject</span>
+  </div>
+</ng-container>

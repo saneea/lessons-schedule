@@ -1,6 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {Subject} from "../common/subject";
-import {ConfigService} from "../services/config.service";
+import {Component, Input, OnInit} from '@angular/core';
 import {Config} from "../common/config";
 
 @Component({
@@ -10,29 +8,10 @@ import {Config} from "../common/config";
 })
 export class SubjectsComponent implements OnInit {
 
-  constructor(private configService: ConfigService) {
-  }
+  @Input()
+  config?: Config;
 
   ngOnInit(): void {
   }
 
-  getConfig(): Config {
-    return this.configService.getConfig()
-  }
-
-  onAddSubject(): void {
-    this.configService.addSubject({
-      name: 'New subject',
-      timeOffset: 10,
-      duration: 15
-    })
-  }
-
-  deleteSubject(subject: Subject): void {
-    this.configService.deleteSubject(subject);
-  }
-
-  onConfigEdited() {
-    this.configService.onConfigEdited();
-  }
 }

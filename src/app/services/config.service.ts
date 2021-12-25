@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {Subject} from '../common/subject';
 import {Config} from "../common/config";
 
 const CONFIG_KEY: string = 'config';
@@ -18,20 +17,8 @@ export class ConfigService {
     return this.config;
   }
 
-  addSubject(subject: Subject) {
-    this.config.subjects.push(subject);
-    this.saveConfig();
-  }
-
-  deleteSubject(subject: Subject) {
-    const indexToRemove: number = this.config.subjects.indexOf(subject, 0);
-    if (indexToRemove > -1) {
-      this.config.subjects.splice(indexToRemove, 1);
-    }
-    this.saveConfig();
-  }
-
-  onConfigEdited() {
+  onConfigEdited(newConfig: Config) {
+    this.config = newConfig;
     this.saveConfig();
   }
 
