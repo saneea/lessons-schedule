@@ -1,4 +1,5 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
+import {equalTime, Time} from "../common/time";
 
 @Component({
   selector: 'app-clock-controller',
@@ -7,9 +8,17 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 })
 export class ClockControllerComponent implements OnInit, OnDestroy {
 
+  @Output()
+  onTimeChanged = new EventEmitter<Time>();
+
   intervalId?: number;
 
   displayDate: string = '';
+
+  currentTime: Time = {
+    hours: -1,
+    minutes: -1
+  };
 
   constructor() {
   }
@@ -22,7 +31,18 @@ export class ClockControllerComponent implements OnInit, OnDestroy {
   }
 
   private updateDisplayDate(): void {
-    this.displayDate = '' + new Date();
+    let date = new Date();
+    this.displayDate = '' + date;
+
+    let t = {
+      hours: date.getHours(),
+      minutes: date.getMinutes()
+    }
+
+    if (!equalTime(this.currentTime, t)) {
+      this.currentTime = t;
+      this.onTimeChanged.emit(this.currentTime);
+    }
   }
 
   ngOnDestroy() {

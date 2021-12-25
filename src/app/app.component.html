@@ -1,7 +1,7 @@
 <div class="lessons-wrapper">
   <ng-container *ngIf="!inEdit">
-    <app-clock-controller></app-clock-controller>
-    <app-subjects [config]="config"></app-subjects>
+    <app-clock-controller (onTimeChanged)="onTimeChanged($event)"></app-clock-controller>
+    <app-subjects [config]="config" [time]="currentTime"></app-subjects>
   </ng-container>
 
   <ng-container *ngIf="inEdit">

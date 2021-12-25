@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ConfigService} from "./services/config.service";
 import {Config} from "./common/config";
+import {Time} from "./common/time";
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,11 @@ export class AppComponent implements OnInit {
   inEdit: boolean = false;
   config?: Config;
   editableConfig?: Config;
+
+  currentTime: Time = {
+    hours: -1,
+    minutes: -1
+  }
 
   constructor(private configService: ConfigService) {
   }
@@ -35,6 +41,10 @@ export class AppComponent implements OnInit {
 
   onDiscardChangesClick(): void {
     this.inEdit = false;
+  }
+
+  onTimeChanged(time: Time): void {
+    this.currentTime = time;
   }
 
 }
