@@ -1,17 +1,23 @@
-.edit-subject-button {
-  margin-left: 10px;
+.editor-button {
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px black;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.__edit-subject-button {
   background: yellow;
-  cursor: pointer;
 }
 
-.apply-changes-subject-button {
-  margin-left: 10px;
+.__apply-changes-subject-button {
   background: green;
-  cursor: pointer;
 }
 
-.discard-changes-subject-button {
-  margin-left: 10px;
+.__discard-changes-subject-button {
   background: red;
-  cursor: pointer;
+}
+
+.lessons-wrapper {
+  padding: 20px 0;
 }

@@ -1,13 +1,14 @@
-<ng-container *ngIf="!inEdit">
-  <app-clock-controller></app-clock-controller>
-  <app-subjects [config]="config"></app-subjects>
-  <div style="width: 10px; height: 100px"></div>
-</ng-container>
+<div class="lessons-wrapper">
+  <ng-container *ngIf="!inEdit">
+    <app-clock-controller></app-clock-controller>
+    <app-subjects [config]="config"></app-subjects>
+  </ng-container>
 
-<ng-container *ngIf="inEdit">
-  <app-subjects-editor [config]="editableConfig"></app-subjects-editor>
-</ng-container>
+  <ng-container *ngIf="inEdit">
+    <app-subjects-editor [config]="editableConfig"></app-subjects-editor>
+  </ng-container>
+</div>
 
-<span *ngIf="!inEdit" class="edit-subject-button" (click)="onEditClick()">[edit]</span>
-<span *ngIf="inEdit" class="apply-changes-subject-button" (click)="onApplyChangesClick()">[apply]</span>
-<span *ngIf="inEdit" class="discard-changes-subject-button" (click)="onDiscardChangesClick()">[discard]</span>
+<button *ngIf="!inEdit" class="editor-button __edit-subject-button" (click)="onEditClick()">Edit</button>
+<button *ngIf="inEdit" class="editor-button __apply-changes-subject-button" (click)="onApplyChangesClick()">Apply</button>
+<button *ngIf="inEdit" class="editor-button __discard-changes-subject-button" (click)="onDiscardChangesClick()">Discard</button>
