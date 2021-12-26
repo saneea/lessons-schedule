@@ -1,11 +1,11 @@
 <div class="subject-wrapper">
 
 
-  <div *ngIf="scheduleItem">
-    <ng-container [ngSwitch]="scheduleItem.type">
+  <div *ngIf="_scheduleItem">
+    <ng-container [ngSwitch]="_scheduleItem.type">
       <ng-container *ngSwitchCase="'lesson'">
-        <div class="subject-name">Subject: {{scheduleItem.subjectName}}</div>
-        <div class="subject-name">Time: {{scheduleItem.start}} - {{scheduleItem.end}}</div>
+        <div class="subject-name">Subject: {{_scheduleItem.subjectName}}</div>
+        <div class="subject-name">Time: {{_scheduleItem.start}} - {{end}}</div>
       </ng-container>
       <ng-container *ngSwitchCase="'break'">
         <div class="subject-name">Break</div>
