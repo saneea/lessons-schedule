@@ -1,12 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Subject} from "../common/subject";
-import {LocalTime} from "@js-joda/core";
-
-export interface LessonItem {
-  start: LocalTime;
-  end: LocalTime;
-  subject: Subject;
-}
+import {ScheduleItem} from "../common/schedule-item";
 
 @Component({
   selector: 'app-subject',
@@ -15,7 +8,7 @@ export interface LessonItem {
 })
 export class SubjectComponent implements OnInit {
 
-  @Input() lessonItem?: LessonItem;
+  @Input() scheduleItem?: ScheduleItem;
 
   @Input() inProgress: boolean = false;
 
