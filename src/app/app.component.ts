@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ConfigService} from "./services/config.service";
 import {Config} from "./common/config";
-import {Time} from "./common/time";
+import {LocalTime} from "@js-joda/core";
 
 @Component({
   selector: 'app-root',
@@ -14,10 +14,7 @@ export class AppComponent implements OnInit {
   config?: Config;
   editableConfig?: Config;
 
-  currentTime: Time = {
-    hours: -1,
-    minutes: -1
-  }
+  currentTime: LocalTime = LocalTime.of(0, 0);
 
   constructor(private configService: ConfigService) {
   }
@@ -43,7 +40,7 @@ export class AppComponent implements OnInit {
     this.inEdit = false;
   }
 
-  onTimeChanged(time: Time): void {
+  onTimeChanged(time: LocalTime): void {
     this.currentTime = time;
   }
 

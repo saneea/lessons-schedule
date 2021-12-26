@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
-import {equalTime, Time} from "../common/time";
+import {LocalTime} from "@js-joda/core";
 
 @Component({
   selector: 'app-clock-controller',
@@ -9,16 +9,13 @@ import {equalTime, Time} from "../common/time";
 export class ClockControllerComponent implements OnInit, OnDestroy {
 
   @Output()
-  onTimeChanged = new EventEmitter<Time>();
+  onTimeChanged = new EventEmitter<LocalTime>();
 
   intervalId?: number;
 
   displayDate: string = '';
 
-  currentTime: Time = {
-    hours: -1,
-    minutes: -1
-  };
+  currentTime: LocalTime = LocalTime.of(0, 0);
 
   constructor() {
   }
@@ -34,12 +31,9 @@ export class ClockControllerComponent implements OnInit, OnDestroy {
     let date = new Date();
     this.displayDate = '' + date;
 
-    let t = {
-      hours: date.getHours(),
-      minutes: date.getMinutes()
-    }
+    let t = LocalTime.of(date.getHours(), date.getMinutes())
 
-    if (!equalTime(this.currentTime, t)) {
+    if (!this.currentTime.equals(t)) {
       this.currentTime = t;
       this.onTimeChanged.emit(this.currentTime);
     }

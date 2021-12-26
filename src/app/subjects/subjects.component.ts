@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Config} from "../common/config";
-import {Time} from "../common/time";
 import {LessonItem} from "../subject/subject.component";
 import {LocalTime} from "@js-joda/core";
 
@@ -18,7 +17,7 @@ export class SubjectsComponent implements OnInit {
   }
 
   @Input()
-  time?: Time;
+  time?: LocalTime;
 
   _config?: Config;
 
