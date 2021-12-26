@@ -3,9 +3,9 @@
     [startTime]="_config.startTime">
   </app-lessons-start>
 
-  <div *ngFor="let lesson of lessons">
+  <div *ngFor="let scheduleItem of scheduleItems">
     <app-subject
-      [lessonItem]="lesson">
+      [scheduleItem]="scheduleItem">
     </app-subject>
   </div>
 </ng-container>
