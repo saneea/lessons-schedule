@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Config} from "../common/config";
 import {LocalTime} from "@js-joda/core";
-import {ScheduleItem} from "../common/schedule-item";
+import {getScheduleItemEnd, ScheduleItem} from "../common/schedule-item";
 
 @Component({
   selector: 'app-subjects',
@@ -17,9 +17,13 @@ export class SubjectsComponent implements OnInit {
   }
 
   @Input()
-  time?: LocalTime;
+  set time(value: LocalTime) {
+    this._time = value;
+    this.updateStatuses();
+  }
 
   _config?: Config;
+  _time?: LocalTime;
 
   scheduleItems: ScheduleItem[] = [];
 
@@ -36,7 +40,8 @@ export class SubjectsComponent implements OnInit {
       let breakItem: ScheduleItem = {
         type: 'break',
         start: currentStart,
-        duration: subject.timeOffset
+        duration: subject.timeOffset,
+        active: false
       };
 
       result.push(breakItem);
@@ -47,7 +52,8 @@ export class SubjectsComponent implements OnInit {
         type: 'lesson',
         start: lessonStart,
         duration: subject.duration,
-        subjectName: subject.name
+        subjectName: subject.name,
+        active: false
       };
 
       result.push(lessonItem);
@@ -56,6 +62,15 @@ export class SubjectsComponent implements OnInit {
     }
 
     return result;
+  }
+
+  updateStatuses() {
+    if (this._time) {
+      for (const scheduleItem of this.scheduleItems) {
+        let endTime = getScheduleItemEnd(scheduleItem);
+        scheduleItem.active = scheduleItem.start.compareTo(this._time) <= 0 && this._time.compareTo(endTime) < 0
+      }
+    }
   }
 
 }
