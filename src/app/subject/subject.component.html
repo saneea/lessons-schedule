@@ -1,7 +1,7 @@
 <div class="subject-wrapper">
 
 
-  <div *ngIf="_scheduleItem">
+  <div *ngIf="_scheduleItem" [class.active]="_scheduleItem.active">
     <ng-container [ngSwitch]="_scheduleItem.type">
       <ng-container *ngSwitchCase="'lesson'">
         <div class="subject-name">Subject: {{_scheduleItem.subjectName}}</div>

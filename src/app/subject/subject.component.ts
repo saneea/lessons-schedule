@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ScheduleItem} from "../common/schedule-item";
+import {getScheduleItemEnd, ScheduleItem} from "../common/schedule-item";
 import {LocalTime} from "@js-joda/core";
 
 @Component({
@@ -11,7 +11,7 @@ export class SubjectComponent implements OnInit {
 
   @Input() set scheduleItem(value: ScheduleItem) {
     this._scheduleItem = value;
-    this.end = value.start.plusMinutes(value.duration);
+    this.end = getScheduleItemEnd(value);
   }
 
   @Input() inProgress: boolean = false;
