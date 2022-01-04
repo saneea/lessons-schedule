@@ -1,5 +1,5 @@
 export interface Subject {
   name: string;
-  timeOffset: number;
+  breakTimeAfter: number;
   duration: number;
 }

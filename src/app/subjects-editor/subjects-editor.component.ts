@@ -28,7 +28,7 @@ export class SubjectsEditorComponent implements OnInit {
     if (this.config) {
       this.config.subjects.push({
         name: 'New subject',
-        timeOffset: 10,
+        breakTimeAfter: 10,
         duration: 15
       });
     }
