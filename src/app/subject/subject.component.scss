@@ -8,19 +8,31 @@
   padding: 5px;
   margin: 10px 5px;
 
-  background: rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+
+  opacity: 0.3;
 
   transition:
-    background 0.5s ease,
-    box-shadow 0.5s ease;
+    opacity 0.5s ease;
 }
 
-.active {
+.__active {
   .subject-cell {
-    background: rgba(255, 0, 0, 0.5);
-    box-shadow: 0 0 5px rgba(255, 0, 0, 0.7)
+    opacity: 1;
+  }
+}
+
+.__break {
+  .subject-cell {
+    background: green;
+    box-shadow: 0 0 5px green;
+  }
+}
+
+.__lesson {
+  .subject-cell {
+    background: darkorange;
+    box-shadow: 0 0 5px darkorange;
   }
 }
 

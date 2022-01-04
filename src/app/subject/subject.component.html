@@ -1,4 +1,9 @@
-<div *ngIf="_scheduleItem" class="subject-wrapper" [class.active]="_scheduleItem.active">
+<div *ngIf="_scheduleItem"
+     class="subject-wrapper"
+     [class.__active]="_scheduleItem.active"
+     [class.__break]="_scheduleItem.type === 'break'"
+     [class.__lesson]="_scheduleItem.type === 'lesson'"
+>
 
   <div class="subject-cell cell_time">
     <div class="subject-name">{{_scheduleItem.start}}</div>
