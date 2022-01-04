@@ -13,7 +13,7 @@ export class ClockControllerComponent implements OnInit, OnDestroy {
 
   intervalId?: number;
 
-  displayDate: string = '';
+  date: Date = new Date();
 
   currentTime: LocalTime = LocalTime.of(0, 0);
 
@@ -28,10 +28,9 @@ export class ClockControllerComponent implements OnInit, OnDestroy {
   }
 
   private updateDisplayDate(): void {
-    let date = new Date();
-    this.displayDate = '' + date;
+    this.date = new Date();
 
-    let t = LocalTime.of(date.getHours(), date.getMinutes())
+    let t = LocalTime.of(this.date.getHours(), this.date.getMinutes())
 
     if (!this.currentTime.equals(t)) {
       this.currentTime = t;
