@@ -1,8 +1,4 @@
 <ng-container *ngIf="_config">
-  <app-lessons-start
-    [startTime]="_config.startTime">
-  </app-lessons-start>
-
   <div *ngFor="let scheduleItem of scheduleItems">
     <app-subject
       [scheduleItem]="scheduleItem">
