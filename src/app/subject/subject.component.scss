@@ -1,10 +1,12 @@
 .subject-wrapper {
-  padding: 5px;
-  margin: 15px;
-
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.subject-cell {
+  padding: 5px;
+  margin: 10px 5px;
 
   background: rgba(0, 0, 0, 0.1);
   border-radius: 10px;
@@ -15,10 +17,20 @@
     box-shadow 0.5s ease;
 }
 
-.subject-wrapper.active {
-  background: rgba(255, 0, 0, 0.5);
-  box-shadow: 0 0 5px rgba(255, 0, 0, 0.7)
+.active {
+  .subject-cell {
+    background: rgba(255, 0, 0, 0.5);
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.7)
+  }
+}
+
+.cell_time {
+}
+
+.cell_title {
+  flex: 1;
 }
 
 .subject-name {
+  text-align: center;
 }

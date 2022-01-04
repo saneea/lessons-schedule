@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {getScheduleItemEnd, ScheduleItem} from "../common/schedule-item";
-import {LocalTime} from "@js-joda/core";
+import {ScheduleItem} from "../common/schedule-item";
 
 @Component({
   selector: 'app-subject',
@@ -11,14 +10,11 @@ export class SubjectComponent implements OnInit {
 
   @Input() set scheduleItem(value: ScheduleItem) {
     this._scheduleItem = value;
-    this.end = getScheduleItemEnd(value);
   }
 
   @Input() inProgress: boolean = false;
 
   _scheduleItem?: ScheduleItem;
-
-  end?: LocalTime;
 
   constructor() {
   }
