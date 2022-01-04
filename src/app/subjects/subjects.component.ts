@@ -37,20 +37,9 @@ export class SubjectsComponent implements OnInit {
 
     for (const subject of config.subjects) {
 
-      let breakItem: ScheduleItem = {
-        type: 'break',
-        start: currentStart,
-        duration: subject.timeOffset,
-        active: false
-      };
-
-      result.push(breakItem);
-
-      let lessonStart = currentStart.plusMinutes(subject.timeOffset);
-
       let lessonItem: ScheduleItem = {
         type: 'lesson',
-        start: lessonStart,
+        start: currentStart,
         duration: subject.duration,
         subjectName: subject.name,
         active: false
@@ -58,7 +47,18 @@ export class SubjectsComponent implements OnInit {
 
       result.push(lessonItem);
 
-      currentStart = lessonStart.plusMinutes(subject.duration);
+      let breakStart = currentStart.plusMinutes(subject.duration);
+
+      let breakItem: ScheduleItem = {
+        type: 'break',
+        start: breakStart,
+        duration: subject.breakTimeAfter,
+        active: false
+      };
+
+      result.push(breakItem);
+
+      currentStart = breakStart.plusMinutes(subject.breakTimeAfter);
     }
 
     return result;
