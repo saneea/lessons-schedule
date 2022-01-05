@@ -1,7 +1,12 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Config} from "../common/config";
 import {LocalTime} from "@js-joda/core";
 import {getScheduleItemEnd, ScheduleItem} from "../common/schedule-item";
+
+export enum LessonStatus {
+  started,
+  finished
+}
 
 @Component({
   selector: 'app-subjects',
@@ -21,6 +26,9 @@ export class SubjectsComponent implements OnInit {
     this._time = value;
     this.updateStatuses();
   }
+
+  @Output()
+  onLessonStatusChanged = new EventEmitter<LessonStatus>();
 
   _config?: Config;
   _time?: LocalTime;
@@ -68,7 +76,17 @@ export class SubjectsComponent implements OnInit {
     if (this._time) {
       for (const scheduleItem of this.scheduleItems) {
         let endTime = getScheduleItemEnd(scheduleItem);
-        scheduleItem.active = scheduleItem.start.compareTo(this._time) <= 0 && this._time.compareTo(endTime) < 0
+        let newStatus = scheduleItem.start.compareTo(this._time) <= 0 && this._time.compareTo(endTime) < 0;
+
+        if (scheduleItem.type === 'lesson') {
+          if (!scheduleItem.active && newStatus) {
+            this.onLessonStatusChanged.emit(LessonStatus.started);
+          } else if (scheduleItem.active && !newStatus) {
+            this.onLessonStatusChanged.emit(LessonStatus.finished);
+          }
+        }
+
+        scheduleItem.active = newStatus;
       }
     }
   }

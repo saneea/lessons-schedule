@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ConfigService} from "./services/config.service";
 import {Config} from "./common/config";
 import {LocalTime} from "@js-joda/core";
+import {LessonStatus} from "./subjects/subjects.component";
 
 @Component({
   selector: 'app-root',
@@ -44,4 +45,7 @@ export class AppComponent implements OnInit {
     this.currentTime = time;
   }
 
+  onLessonStatusChanged(lessonStatus: LessonStatus) {
+    //TODO: play sound
+  }
 }
