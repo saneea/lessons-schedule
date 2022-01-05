@@ -46,6 +46,28 @@ export class AppComponent implements OnInit {
   }
 
   onLessonStatusChanged(lessonStatus: LessonStatus) {
-    //TODO: play sound
+    let lessonStart = 'assets/sound/dog/Small-dog-barking-noise.mp3';
+    let lessonFinish = 'assets/sound/cat/Cat-meowing-sound-effect.mp3';
+
+    let ringUrl: string | null;
+    switch (lessonStatus) {
+      case LessonStatus.started:
+        ringUrl = lessonStart;
+        break;
+
+      case LessonStatus.finished:
+        ringUrl = lessonFinish;
+        break;
+
+      default:
+        ringUrl = null;
+    }
+
+    if (ringUrl) {
+      let audio = new Audio();
+      audio.src = ringUrl;
+      audio.load();
+      audio.play();
+    }
   }
 }
