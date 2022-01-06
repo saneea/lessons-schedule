@@ -3,10 +3,7 @@ import {Config} from "../common/config";
 import {LocalTime} from "@js-joda/core";
 import {getScheduleItemEnd, ScheduleItem} from "../common/schedule-item";
 
-export enum LessonStatus {
-  started,
-  finished
-}
+export type LessonStatus = 'started' | 'finished';
 
 @Component({
   selector: 'app-subjects',
@@ -80,9 +77,9 @@ export class SubjectsComponent implements OnInit {
 
         if (scheduleItem.type === 'lesson') {
           if (!scheduleItem.active && newStatus) {
-            this.onLessonStatusChanged.emit(LessonStatus.started);
+            this.onLessonStatusChanged.emit('started');
           } else if (scheduleItem.active && !newStatus) {
-            this.onLessonStatusChanged.emit(LessonStatus.finished);
+            this.onLessonStatusChanged.emit('finished');
           }
         }
 
