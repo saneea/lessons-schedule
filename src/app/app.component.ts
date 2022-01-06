@@ -4,6 +4,11 @@ import {Config} from "./common/config";
 import {LocalTime} from "@js-joda/core";
 import {LessonStatus} from "./subjects/subjects.component";
 
+const soundUrls = {
+  'started': 'assets/sound/dog/Small-dog-barking-noise.mp3',
+  'finished': 'assets/sound/cat/Cat-meowing-sound-effect.mp3'
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -46,28 +51,13 @@ export class AppComponent implements OnInit {
   }
 
   onLessonStatusChanged(lessonStatus: LessonStatus) {
-    let lessonStart = 'assets/sound/dog/Small-dog-barking-noise.mp3';
-    let lessonFinish = 'assets/sound/cat/Cat-meowing-sound-effect.mp3';
+    this.playSound(soundUrls[lessonStatus]);
+  }
 
-    let ringUrl: string | null;
-    switch (lessonStatus) {
-      case LessonStatus.started:
-        ringUrl = lessonStart;
-        break;
-
-      case LessonStatus.finished:
-        ringUrl = lessonFinish;
-        break;
-
-      default:
-        ringUrl = null;
-    }
-
-    if (ringUrl) {
-      let audio = new Audio();
-      audio.src = ringUrl;
-      audio.load();
-      audio.play();
-    }
+  playSound(ringUrl: string) {
+    let audio = new Audio();
+    audio.src = ringUrl;
+    audio.load();
+    audio.play();
   }
 }
