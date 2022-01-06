@@ -7,6 +7,7 @@ export interface Resources {
   },
   button: {
     title: {
+      splash: string,
       edit: string,
       accept: string,
       discard: string,
@@ -28,6 +29,7 @@ export const ResourcesRU: Resources = {
 
   button: {
     title: {
+      splash: 'Go!',
       edit: 'Редактировать',
       accept: 'Сохранить',
       discard: 'Отмена',
