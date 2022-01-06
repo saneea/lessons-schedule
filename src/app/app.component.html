@@ -20,6 +20,7 @@
       </ng-container>
     </div>
 
+    <button *ngIf="!inEdit" class="editor-button __test-sound-button" (click)="onTestSoundClick()">Test sound</button>
     <button *ngIf="!inEdit" class="editor-button __edit-subject-button" (click)="onEditClick()">Edit</button>
     <button *ngIf="inEdit" class="editor-button __apply-changes-subject-button" (click)="onApplyChangesClick()">Apply
     </button>

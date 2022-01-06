@@ -65,4 +65,8 @@ export class AppComponent implements OnInit {
   onCloseSplash() {
     this.splashScreen = false;
   }
+
+  onTestSoundClick() {
+    this.playSound(soundUrls.started);
+  }
 }
