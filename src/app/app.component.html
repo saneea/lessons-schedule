@@ -20,12 +20,17 @@
       </ng-container>
     </div>
 
-    <button *ngIf="!inEdit" class="editor-button __test-sound-button" (click)="onTestSoundClick()">Test sound</button>
-    <button *ngIf="!inEdit" class="editor-button __edit-subject-button" (click)="onEditClick()">Edit</button>
-    <button *ngIf="inEdit" class="editor-button __apply-changes-subject-button" (click)="onApplyChangesClick()">Apply
+    <button *ngIf="!inEdit" class="editor-button __test-sound-button" (click)="onTestSoundClick()">
+      {{r.button.title.testSound}}
+    </button>
+    <button *ngIf="!inEdit" class="editor-button __edit-subject-button" (click)="onEditClick()">
+      {{r.button.title.edit}}
+    </button>
+    <button *ngIf="inEdit" class="editor-button __apply-changes-subject-button" (click)="onApplyChangesClick()">
+      {{r.button.title.accept}}
     </button>
     <button *ngIf="inEdit" class="editor-button __discard-changes-subject-button" (click)="onDiscardChangesClick()">
-      Discard
+      {{r.button.title.discard}}
     </button>
   </ng-container>
 </ng-container>

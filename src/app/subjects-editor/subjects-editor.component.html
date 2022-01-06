@@ -1,5 +1,6 @@
 <ng-container *ngIf="config">
   <div>
+    <span>{{r.title.scheduleStart}}: </span>
     <input type="number"
            min="0" max="23"
            class="subject-editor-field"
@@ -13,9 +14,9 @@
 
   <table>
     <tr>
-      <th>name</th>
-      <th>duration</th>
-      <th>breakTimeAfter</th>
+      <th>{{r.title.subjectName}}</th>
+      <th>{{r.title.lessonDuration}}</th>
+      <th>{{r.title.lessonsBreak}}</th>
       <th></th>
     </tr>
 
@@ -46,13 +47,13 @@
       </td>
 
       <td>
-        <button class="delete-subject-button" (click)="onDeleteClick(subject)">Remove</button>
+        <button class="delete-subject-button" (click)="onDeleteClick(subject)">{{r.button.title.remove}}</button>
       </td>
     </tr>
   </table>
 
 
   <div class="add-subject-wrapper">
-    <button class="add-subject" (click)="onAddSubject()">Add subject</button>
+    <button class="add-subject" (click)="onAddSubject()">{{r.button.title.addSubjects}}</button>
   </div>
 </ng-container>
