@@ -16,6 +16,7 @@ const soundUrls = {
 })
 export class AppComponent implements OnInit {
 
+  splashScreen: boolean = true;
   inEdit: boolean = false;
   config?: Config;
   editableConfig?: Config;
@@ -59,5 +60,9 @@ export class AppComponent implements OnInit {
     audio.src = ringUrl;
     audio.load();
     audio.play();
+  }
+
+  onCloseSplash() {
+    this.splashScreen = false;
   }
 }
