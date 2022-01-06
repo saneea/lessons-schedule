@@ -1,3 +1,7 @@
+.schedule-start-label {
+  font-weight: bold;
+}
+
 .subject-editor-field {
   padding: 5px;
   border-radius: 10px;
@@ -20,8 +24,9 @@
 .add-subject {
   margin-top: 20px;
   padding: 10px;
-  background: greenyellow;
+  background: royalblue;
   border-radius: 10px;
   box-shadow: 0 0 5px black;
   cursor: pointer;
+  color: white;
 }
