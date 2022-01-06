@@ -1,19 +1,30 @@
-<ng-container *ngIf="config">
-  <div class="lessons-wrapper">
-    <ng-container *ngIf="!inEdit">
-      <app-clock-controller (onTimeChanged)="onTimeChanged($event)"></app-clock-controller>
-      <app-subjects [config]="config" [time]="currentTime" (onLessonStatusChanged)="onLessonStatusChanged($event)"></app-subjects>
-    </ng-container>
-
-    <ng-container *ngIf="inEdit">
-      <app-subjects-editor [config]="editableConfig"></app-subjects-editor>
-    </ng-container>
+<ng-container *ngIf="splashScreen">
+  <div class="splash-screen-wrapper">
+    <button class="go-button" (click)="onCloseSplash()">
+      Go!
+    </button>
   </div>
+</ng-container>
 
-  <button *ngIf="!inEdit" class="editor-button __edit-subject-button" (click)="onEditClick()">Edit</button>
-  <button *ngIf="inEdit" class="editor-button __apply-changes-subject-button" (click)="onApplyChangesClick()">Apply
-  </button>
-  <button *ngIf="inEdit" class="editor-button __discard-changes-subject-button" (click)="onDiscardChangesClick()">
-    Discard
-  </button>
+<ng-container *ngIf="!splashScreen">
+  <ng-container *ngIf="config">
+    <div class="lessons-wrapper">
+      <ng-container *ngIf="!inEdit">
+        <app-clock-controller (onTimeChanged)="onTimeChanged($event)"></app-clock-controller>
+        <app-subjects [config]="config" [time]="currentTime"
+                      (onLessonStatusChanged)="onLessonStatusChanged($event)"></app-subjects>
+      </ng-container>
+
+      <ng-container *ngIf="inEdit">
+        <app-subjects-editor [config]="editableConfig"></app-subjects-editor>
+      </ng-container>
+    </div>
+
+    <button *ngIf="!inEdit" class="editor-button __edit-subject-button" (click)="onEditClick()">Edit</button>
+    <button *ngIf="inEdit" class="editor-button __apply-changes-subject-button" (click)="onApplyChangesClick()">Apply
+    </button>
+    <button *ngIf="inEdit" class="editor-button __discard-changes-subject-button" (click)="onDiscardChangesClick()">
+      Discard
+    </button>
+  </ng-container>
 </ng-container>
