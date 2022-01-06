@@ -3,6 +3,7 @@ import {ConfigService} from "./services/config.service";
 import {Config} from "./common/config";
 import {LocalTime} from "@js-joda/core";
 import {LessonStatus} from "./subjects/subjects.component";
+import {currentResources} from "./common/resources";
 
 const soundUrls = {
   'started': 'assets/sound/dog/Small-dog-barking-noise.mp3',
@@ -16,6 +17,7 @@ const soundUrls = {
 })
 export class AppComponent implements OnInit {
 
+  r = currentResources;
   splashScreen: boolean = true;
   inEdit: boolean = false;
   config?: Config;

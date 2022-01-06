@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Config} from "../common/config";
 import {Subject} from "../common/subject";
+import {currentResources} from "../common/resources";
 
 @Component({
   selector: 'app-subjects-editor',
@@ -8,6 +9,8 @@ import {Subject} from "../common/subject";
   styleUrls: ['./subjects-editor.component.scss']
 })
 export class SubjectsEditorComponent implements OnInit {
+
+  r = currentResources;
 
   @Input()
   public config?: Config;

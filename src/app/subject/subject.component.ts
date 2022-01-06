@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ScheduleItem} from "../common/schedule-item";
+import {currentResources} from "../common/resources";
 
 @Component({
   selector: 'app-subject',
@@ -7,6 +8,8 @@ import {ScheduleItem} from "../common/schedule-item";
   styleUrls: ['./subject.component.scss']
 })
 export class SubjectComponent implements OnInit {
+
+  r = currentResources;
 
   @Input() set scheduleItem(value: ScheduleItem) {
     this._scheduleItem = value;
